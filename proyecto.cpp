@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstdlib> //system("color fd")
+#include <cstdlib> 
 #include <ctime>
 #include <conio.h>
 #include <windows.h>
