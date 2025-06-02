@@ -7,17 +7,30 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Establecer que el entorno sea Windows
+    runs-on: windows-latest  # Ejecutar en Windows
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2  # Descargar el código del repositorio
 
-      - name: Install MinGW
-        run: choco install mingw  # Instalar MinGW en el entorno Windows
+      # Usar el caché para MinGW
+      - name: Cache MinGW installation
+        uses: actions/cache@v2
+        with:
+          path: C:\tools\mingw  # Ruta donde se instala MinGW
+          key: ${{ runner.os }}-mingw-${{ hashFiles('**/*.cpp') }}  # Clave única para el caché
+          restore-keys: |
+            ${{ runner.os }}-mingw-
+
+      - name: Install MinGW if not cached
+        run: |
+          if [ ! -d "C:/tools/mingw" ]; then
+            choco install mingw
+          fi
 
       - name: Compile C++ code with MinGW
-        run: g++ -o proyecto proyecto.cpp  # Compilar el código C++ usando g++
+        run: g++ -o proyecto proyecto.cpp  # Compilar el código C++
 
       - name: Run the program
         run: ./proyecto.exe  # Ejecutar el archivo compilado
+
