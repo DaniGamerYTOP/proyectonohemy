@@ -17,7 +17,7 @@ jobs:
         run: choco install mingw  # Instalar MinGW en el entorno Windows
 
       - name: Compile C++ code with MinGW
-        run: g++ -o my_program my_program.cpp  # Compilar el código C++ usando g++
+        run: g++ -o proyecto proyecto.cpp  # Compilar el código C++ usando g++
 
       - name: Run the program
-        run: ./my_program.exe  # Ejecutar el archivo compilado
+        run: ./proyecto.exe  # Ejecutar el archivo compilado
