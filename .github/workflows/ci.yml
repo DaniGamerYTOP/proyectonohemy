@@ -3,21 +3,21 @@ name: Build and Run C++ Code with MinGW on Windows
 on:
   push:
     branches:
-      - main
+      - main  # Ejecutar cuando se haga un push a la rama principal
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-latest  # Establecer que el entorno sea Windows
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # Descargar el código del repositorio
 
       - name: Install MinGW
-        run: choco install mingw
+        run: choco install mingw  # Instalar MinGW en el entorno Windows
 
-      - name: Compile C++ code
-        run: g++ -o my_program my_program.cpp
+      - name: Compile C++ code with MinGW
+        run: g++ -o my_program my_program.cpp  # Compilar el código C++ usando g++
 
       - name: Run the program
-        run: ./my_program.exe
+        run: ./my_program.exe  # Ejecutar el archivo compilado
