@@ -1,0 +1,23 @@
+name: Build and Run C++ Code with MinGW on Windows
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install MinGW
+        run: choco install mingw
+
+      - name: Compile C++ code
+        run: g++ -o my_program my_program.cpp
+
+      - name: Run the program
+        run: ./my_program.exe
