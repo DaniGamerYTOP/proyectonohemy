@@ -119,7 +119,7 @@ int main(){
 			case 2:{
 				system("cls");
 				cout<<"ESTADISTICAS"<<endl<<endl;
-				if (cant_num_gen>=1) { // Validar que haya jugado al menos una vez (que haya generado al menos un numero)
+				if (cant_num_gen>=1) {  // Validar que haya jugado al menos una vez (que haya generado al menos un numero)
 				
 					cout<<"- Cantidad de números ingresados: "<<cant_num<<endl;
 					cout<<"- Porcentaje de aciertos: "<<fixed<<setprecision(2)<<wins/cant_num*100<<"%"<<endl;
