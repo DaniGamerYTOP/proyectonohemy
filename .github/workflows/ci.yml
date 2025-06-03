@@ -23,16 +23,14 @@ jobs:
             ${{ runner.os }}-mingw-
 
       - name: Install MinGW if not cached
-  run: |
-    if (-Not (Test-Path "C:\tools\mingw")) {
-      choco install mingw
-    }
-  shell: pwsh
-
+        run: |
+          if (-Not (Test-Path "C:\tools\mingw")) {
+            choco install mingw
+          }
+        shell: pwsh
 
       - name: Compile C++ code with MinGW
         run: g++ -o my_program my_program.cpp  # Compilar el código C++
 
       - name: Run the program
         run: ./my_program.exe  # Ejecutar el archivo compilado
-
