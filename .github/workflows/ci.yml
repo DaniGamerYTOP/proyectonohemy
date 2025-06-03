@@ -31,8 +31,8 @@ jobs:
 
 
       - name: Compile C++ code with MinGW
-        run: g++ -o proyecto proyecto.cpp  # Compilar el código C++
+        run: g++ -o my_program my_program.cpp  # Compilar el código C++
 
       - name: Run the program
-        run: ./proyecto.exe  # Ejecutar el archivo compilado
+        run: ./my_program.exe  # Ejecutar el archivo compilado
 
