@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Descargar el código del repositorio
+        uses: actions/checkout@v4  # Descargar el código del repositorio
 
       # Usar el caché para MinGW
       - name: Cache MinGW installation
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: C:\tools\mingw  # Ruta donde se instala MinGW
           key: ${{ runner.os }}-mingw-${{ hashFiles('**/*.cpp') }}  # Clave única para el caché
